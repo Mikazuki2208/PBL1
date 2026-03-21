@@ -33,7 +33,7 @@ int get_data(Position *count, char *l_name, char *f_name, char *birthday, int *s
 {
 	FILE *file = fopen("text.txt","r");
 	if (file==NULL) return FALSE;
-	while (fscanf(file, "%49[^:]:%49[^:]:%49[^:]:%d:%49[^:]:%d:%49s\n",
+	while (fscanf(file, "%49[^:]:%49[^:]:%49[^:]:%d:%99[^:]:%d:%49s\n",
 		l_name   +*count*MAX_SIZE,
 		f_name   +*count*MAX_SIZE,
 		birthday +*count*MAX_SIZE,
@@ -123,7 +123,6 @@ void menu()
 	if (get_data(&count,l_name,f_name,birthday,sex,address,id,email)==FALSE)
 	{
 		printf("Không tìm thấy file dữ liệu!!!\n");
-		return;
 	}
 	show(count,l_name,f_name,birthday,sex,address,id,email);
 	printf("Menu\n");
