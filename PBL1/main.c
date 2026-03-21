@@ -3,7 +3,9 @@
 #include <stdlib.h>
 #define TRUE 1
 #define FALSE 0
+#define NOT_FOUND -1
 typedef unsigned int Position;
+typedef unsigned int Quantity;
 
 char l_name[5001];
 char f_name[5001];
@@ -30,7 +32,7 @@ int get_data(Position *count, char *l_name, char *f_name, char *birthday, int *s
 	return TRUE;
 }
 
-void show(Position count, char *l_name, char *f_name, char *birthday, int *sex, char*address, int id[], char *email)
+void show(Quantity count, char *l_name, char *f_name, char *birthday, int *sex, char*address, int id[], char *email)
 {
 	int i;
 	for(i=0; i<count; i++)
@@ -82,7 +84,7 @@ int add(Position *count, char *l_name, char *f_name, char *birthday, int *sex, c
 	return TRUE;
 }
 
-void save(Position *count, char *l_name, char *f_name, char *birthday, int *sex, char *address, int *id, char *email)
+void save(Quantity *count, char *l_name, char *f_name, char *birthday, int *sex, char *address, int *id, char *email)
 {
 	FILE *file = fopen("text.txt","w");
 	int i;
@@ -102,7 +104,7 @@ void save(Position *count, char *l_name, char *f_name, char *birthday, int *sex,
 	fclose(file);
 }
 
-int sort_list(Position *count, char *l_name, char *f_name, char *birthday, int *sex, char *address, int *id, char *email)
+int sort_list(Quantity *count, char *l_name, char *f_name, char *birthday, int *sex, char *address, int *id, char *email)
 {
 	return 1;
 }
@@ -140,10 +142,11 @@ void menu()
 			add(&count,l_name,f_name,birthday,sex,address,id,email);
 			show(count,l_name,f_name,birthday,sex,address,id,email);
 		}
-		if (select==2)
+		if (select==4)
 		{
-			sort_list(&count,l_name,f_name,birthday,sex,address,id,email);
+			return;
 		}
+
 	}
 }
 
