@@ -12,10 +12,10 @@
 char l_name[MAX_SV*MAX_SIZE];
 char f_name[MAX_SV*MAX_SIZE];
 char birthday[MAX_SV*MAX_SIZE];
-int sex[MAX_SIZE];
+int sex[MAX_SV];
 char address[MAX_SV*MAX_SIZE];
 char email[MAX_SV*MAX_SIZE];
-int id[MAX_SIZE];
+int id[MAX_SV];
 int count=0;
 
 int isFull()
