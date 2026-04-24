@@ -103,10 +103,11 @@ void add()
 		count++;
 		if (isFull())
 		{
-			printf("DDax dur 100 thanhf vieen, khong ther nhaapj theem\n");
-			return;
+			printf("Đã đủ 100 sinh viên\n");
+			break;
 		}
 	}
+	printf("Hoàn thành bổ xung sinh viên!\n");
 }
 
 void save(char *name_file)
@@ -127,6 +128,7 @@ void save(char *name_file)
 		);
 	}
 	fclose(file);
+	printf("Đã lưu thông tin!\n");
 }
 
 void sort_list(int start, int stop)
@@ -340,6 +342,8 @@ void assign_id(char *name_file,int id_faculty)
 		sscanf(name_file, "class/%2d", &year_class);
 		if (id[i]==-1) id[i] = id_faculty*1000000 + year_class*10000 + (++id_max);
 	}
+
+	printf("Đã cấp mã sinh viên!\n");
 }
 
 void assign_email()
@@ -356,6 +360,7 @@ void assign_email()
 			sprintf(email+i*MAX_SIZE, "%d@sv1.dut.udn.vn",id[i]);
 		}
 	}
+	printf("Đã cấp email cho sinh viên!\n");
 }
 
 void menu(char *name_file, int id_faculty);
