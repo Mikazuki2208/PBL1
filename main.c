@@ -402,7 +402,7 @@ void select_create_class()
 			if (count_class==0)
 			{
 				printf("Hiện chưa có lớp nào cả!!!");
-				return;
+				continue;
 			}
 			int i;
 			for (i=0;i<count_class;i++)
