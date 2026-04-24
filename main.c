@@ -401,7 +401,7 @@ void select_create_class()
 			printf("---Danh Sách Các Lớp Hiện Tại---\n");
 			if (count_class==0)
 			{
-				printf("Hiện chưa có lớp nào cả!!!");
+				printf("Hiện chưa có lớp nào cả!!!\n");
 				continue;
 			}
 			int i;
@@ -416,7 +416,7 @@ void select_create_class()
 			
 			if (select_2<1 || select_2>count_class)
 			{
-				printf("Số thứ tự không hợp lệ !!!");
+				printf("Số thứ tự không hợp lệ !!!\n");
 				continue;
 			}
 			char name_file[MAX_SIZE+4];// vì .txt có 4 ký tự :>
