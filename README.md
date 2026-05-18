@@ -23,6 +23,7 @@ gcc main.c manager.c -o main -lncursesw
 
 # Bước 3: Khởi chạy ứng dụng
 ./main
+```
 
 ### 🌟 2. Bản phụ
 
@@ -35,3 +36,4 @@ gcc main.c -o main
 
 # Bước 3: Khởi chạy ứng dụng
 ./main
+```
