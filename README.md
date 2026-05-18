@@ -1,28 +1,23 @@
-# PBL1
-Build a student list management application
+# 🎓 PBL1: Ứng dụng Quản lý Danh sách Sinh viên
 
-có thể tải hết về 1 thư mục, chúng không ảnh hưởng tới nhau
+Dự án xây dựng phần mềm quản lý sinh viên bằng ngôn ngữ C. Mã nguồn được chia thành hai phiên bản (Bản chính và Bản phụ) để tiện cho việc theo dõi và phát triển. 
 
-# Bản phụ
-file tải về
+> **Lưu ý:** Bạn có thể tải toàn bộ các tệp của cả hai phiên bản về cùng một thư mục chung. Chúng hoạt động độc lập và không hề gây xung đột với nhau.
 
-  { code_old.c | name_class.txt | class }
+---
 
-terminal
+## 🚀 Hướng dẫn Cài đặt và Chạy chương trình
 
-  "gcc code_old.c -o main" (chuyển code thành app)
-  
-  "./main"                 (chạy app)
+Dưới đây là hướng dẫn chi tiết để biên dịch và chạy ứng dụng trên môi trường Terminal.
 
-# Bản chính
-file tải về
+### 🌟 Bản chính (Khuyên dùng)
+Đây là phiên bản hoàn thiện, mã nguồn được chia mô-đun rõ ràng và có sử dụng thư viện `ncurses` cho giao diện terminal.
 
-  { main.c | manager.c | manager.h | name_class.txt | class }
+* **Các tệp yêu cầu:** `main.c`, `manager.c`, `manager.h`, `name_class.txt`, `class`
 
-terminal
+**Các bước thực hiện:**
 
-  "nix-shell -p gcc ncurses"                 (Dùng lần đầu tiên: để tạo môi trường ảo)
-  
-  "gcc main.c manager.c -o main -lncursesw"  (Chuyển code thành app)
-  
-  ./main"                                    (Chạy app)
+1. **Khởi tạo môi trường ảo (Chỉ dành cho lần chạy đầu tiên):**
+   Cài đặt môi trường chứa trình biên dịch `gcc` và thư viện `ncurses`.
+   ```bash
+   nix-shell -p gcc ncurses
