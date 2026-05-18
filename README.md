@@ -23,3 +23,15 @@ gcc main.c manager.c -o main -lncursesw
 
 # Bước 3: Khởi chạy ứng dụng
 ./main
+
+### 🌟 2. Bản phụ
+
+* **Các tệp yêu cầu:** `code_old.c`, `name_class.txt`, `class`
+* **Các bước thực hiện:**
+
+```bash
+# Bước 2: Biên dịch các tệp mã nguồn thành ứng dụng
+gcc main.c -o main
+
+# Bước 3: Khởi chạy ứng dụng
+./main
