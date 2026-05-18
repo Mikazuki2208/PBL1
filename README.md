@@ -31,9 +31,9 @@ gcc main.c manager.c -o main -lncursesw
 * **Các bước thực hiện:**
 
 ```bash
-# Bước 2: Biên dịch các tệp mã nguồn thành ứng dụng
+# Bước 1: Biên dịch các tệp mã nguồn thành ứng dụng
 gcc main.c -o main
 
-# Bước 3: Khởi chạy ứng dụng
+# Bước 2: Khởi chạy ứng dụng
 ./main
 ```
