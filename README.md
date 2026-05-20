@@ -37,3 +37,36 @@ gcc main.c -o main
 # Bước 2: Khởi chạy ứng dụng
 ./main
 ```
+
+
+## 🚀 Hướng dẫn Cài đặt và Chạy ứng dụng (Dành cho hệ điều hành Window)
+
+Dưới đây là các câu lệnh thực thi chi tiết trong Terminal cho từng phiên bản.
+
+### 🌟 1. Bản chính (Khuyên dùng)
+Phiên bản hoàn thiện, mã nguồn được chia theo mô-đun rõ ràng và tích hợp thư viện `ncurses` hỗ trợ giao diện Terminal trực quan.
+
+* **Các tệp yêu cầu:** `main.c`, `manager.c`, `manager.h`, `name_class.txt`, `class`
+* **Các bước thực hiện:**
+
+```bash
+#Biên dịch các tệp mã nguồn thành ứng dụng
+gcc main.c manager.c -o main -lncursesw
+# Bước 1: Biên dịch
+gcc main.c manager.c -o main.exe -lncursesw
+# Bước 2: Khởi chạy ứng dụng
+./main.exe
+```
+
+### 🌟 2. Bản phụ
+
+* **Các tệp yêu cầu:** `code_old.c`, `name_class.txt`, `class`
+* **Các bước thực hiện:**
+
+```bash
+# Bước 1: Biên dịch các tệp mã nguồn thành ứng dụng
+gcc main.c -o main
+
+# Bước 2: Khởi chạy ứng dụng
+./main
+```
