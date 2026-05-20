@@ -4,7 +4,7 @@ Dự án xây dựng phần mềm quản lý sinh viên bằng ngôn ngữ C. M�
 
 ---
 
-## 🚀 Hướng dẫn Cài đặt và Chạy ứng dụng
+## 🚀 Hướng dẫn Cài đặt và Chạy ứng dụng (Dành cho hệ điều hành NixOS)
 
 Dưới đây là các câu lệnh thực thi chi tiết trong Terminal cho từng phiên bản.
 
