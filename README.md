@@ -51,8 +51,6 @@ Phiên bản hoàn thiện, mã nguồn được chia theo mô-đun rõ ràng v�
 
 ```bash
 #Biên dịch các tệp mã nguồn thành ứng dụng
-gcc main.c manager.c -o main -lncursesw
-# Bước 1: Biên dịch
 gcc main.c manager.c -o main.exe -lncursesw
 # Bước 2: Khởi chạy ứng dụng
 ./main.exe
