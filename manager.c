@@ -1,7 +1,6 @@
 // nix-shell -p gcc ncurses
 // gcc main.c manager.c -o main -lncursesw
 
-#define _GNU_SOURCE
 #include "manager.h"
 #include <locale.h>
 #include <ncurses.h>
@@ -481,7 +480,7 @@ int *find_class(char *name_find, int *n)
 {
 	int i;
 	int *list_find = (int *)calloc(MAX_CLASS, sizeof(int));
-    for (i=0; i<count; i++) 
+    for (i=0; i<count_class; i++) 
 	{
         if ( strcasestr(name_class+i*MAX_SIZE, name_find)) 
 		{
@@ -732,13 +731,10 @@ void assign_email()
 	int success = 0;
 	for (i=0; i<count; i++)
 	{
-		if (id[i]==-1)
-		{
-			success++;
-		}
-		else
+		if (id[i]!=-1)
 		{
 			sprintf(email+i*MAX_SIZE, "%d@sv1.dut.udn.vn",id[i]);
+			success++;
 		}
 	}
 	
@@ -1281,7 +1277,6 @@ void select_create_class()
 					case 10://nút Enter
 					{
 						select_choice = highlight;
-						beep();
 						break;
 					}
 				}
@@ -1401,7 +1396,6 @@ void select_create_class()
 
 						case 10:// nút Enter
 						{
-							beep();
 							select_choice = highlight;
 							break;
 						}
@@ -1445,7 +1439,6 @@ void select_create_class()
 
 						case 10:// nút Enter
 						{
-							beep();
 							if (highlight==count_class)
 							{
 								print = FALSE;
