@@ -50,21 +50,16 @@ Phiên bản hoàn thiện, mã nguồn được chia theo mô-đun rõ ràng v�
 * **Các bước thực hiện:**
 
 ```bash
-#Biên dịch các tệp mã nguồn thành ứng dụng
-gcc main.c manager.c -o main.exe -lncursesw
-# Bước 2: Khởi chạy ứng dụng
-./main.exe
+# Cài WSL nếu chưa có (PowerShell chạy Admin)
+wsl --install
+
+# Trong WSL terminal
+sudo apt install gcc libncursesw5-dev
+gcc main.c manager.c -o main -lncursesw
+./main
 ```
 
 ### 🌟 2. Bản phụ
 
 * **Các tệp yêu cầu:** `code_old.c`, `name_class.txt`, `class`
-* **Các bước thực hiện:**
-
-```bash
-# Bước 1: Biên dịch các tệp mã nguồn thành ứng dụng
-gcc main.c -o main
-
-# Bước 2: Khởi chạy ứng dụng
-./main
-```
+* **Thực hiện như bình thường**
