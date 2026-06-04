@@ -117,7 +117,7 @@ void show()
 			clrtoeol();
 		}
 
-		mvprintw(y,6,"Họ và Tên: %s %s",l_name+i*MAX_SIZE, f_name+i*MAX_SIZE);
+		mvprintw(y,3,"Họ và Tên: %s %s",l_name+i*MAX_SIZE, f_name+i*MAX_SIZE);
 		mvprintw(y+1,3,"Giới tính: %s",(sex[i])?"Nam":"Nữ");
 		if (id[i]==-1) mvprintw(y+2,3,"ID: Chưa có");
 		else mvprintw(y+2,3,"ID: %d",id[i]);
@@ -181,7 +181,7 @@ int check_int(char *text, int *res)
 {
 	char *end;
 	long value = strtol(text,&end,10); // chuyển về hệ số 10, end sẽ đọc đến khi gặp ký tự != số
-	if (*end != '\0' || end == text) // *end == text là để xét nếu text = '\0' 
+	if (*end != '\0' || end == text) // nếu strtol trả thấy sai ngay từ đầu thì địa chỉ trả về là text
 	{
 		return FALSE;
 	}
@@ -267,7 +267,7 @@ void add()
 	
 	if (e+count > MAX_SV)
 	{
-		mvprintw(y++,5,"Chỉ có thể thêm vào %d sinh viên!\n",MAX_SV-count);
+		mvprintw(y++,5,"Chỉ có thể thêm vào %d sinh viên!",MAX_SV-count);
 		noecho();    // tắt những gì đc nhập vào màn hình
 		curs_set(0); // tắt con trỏ đứng
 		refresh();
@@ -283,7 +283,7 @@ void add()
 		y = 1;
 		box(stdscr,0,0);
 
-		mvprintw(y++,5,"Hãy nhập thông tin người thứ %d\n",i++);
+		mvprintw(y++,5,"Hãy nhập thông tin người thứ %d",i++);
 		
 		mvprintw(y,5,"Họ lót: ");
 		mvgetnstr(y++, 40, l_name+count*MAX_SIZE, MAX_SIZE - 1);
@@ -341,11 +341,11 @@ void add()
 
 		if (isFull())
 		{
-			mvprintw(y++,5,"Đã đủ 100 sinh viên\n");
+			mvprintw(y++,5,"Đã đủ 100 sinh viên");
 			break;
 		}
 	}
-	mvprintw(y++,5,"Hoàn thành bổ xung sinh viên!\n");
+	mvprintw(y++,5,"Hoàn thành bổ xung sinh viên!");
 
 	noecho();    // tắt những gì đc nhập vào màn hình
 	curs_set(0); // tắt con trỏ đứng
@@ -686,6 +686,7 @@ void assign_id(int id_faculty)
 		if (strcmp(full_name_prev,full_name_i) > 0)
 		{
 			strcpy(text,"(Danh sách chx đc sắp xếp)");
+			box(stdscr,0,0);
 			mvprintw(7,25,"%s",text);
 			getch();
 			return;
@@ -908,6 +909,7 @@ void find_students()
 			col = (COLS-COLS/6) - (strlen("next")-strlen("[->]"))/2;
 			mvprintw(y+8,col,"%s",text);
 		}
+		box(stdscr,0,0);
 
 		refresh();
 		event = getch();
@@ -975,7 +977,7 @@ void add_class()
 		y = 1;
 		box(stdscr,0,0);
 
-		mvprintw(y++,5,"Hãy nhập thông tin lớp thứ %d\n",i++);
+		mvprintw(y++,5,"Hãy nhập thông tin lớp thứ %d",i++);
 		
 		is_valid_input = FALSE;
 		while (!is_valid_input)
@@ -1018,7 +1020,7 @@ void add_class()
 			is_valid_input = TRUE;
 			mvprintw(y,5,"Mã khoa: ");
 			mvgetnstr(y, 34, inp, MAX_SIZE - 1);
-			is_valid_input = check_int(inp,&(faculty_class[count_class]));
+			is_valid_input = check_int(inp,&faculty_class[count_class]);
 			if (!is_valid_input)
 			{
 				move(y,34);
@@ -1046,7 +1048,7 @@ void add_class()
 
 		count_class++;
 	}
-	mvprintw(y++,5,"Hoàn thành bổ xung lớp!\n");
+	mvprintw(y++,5,"Hoàn thành bổ xung lớp!");
 
 	noecho();    // tắt những gì đc nhập vào màn hình
 	curs_set(0); // tắt con trỏ đứng
@@ -1093,15 +1095,6 @@ void delete_class()
 		{
 			move(y+e,0);
 			clrtoeol();
-		}
-
-		if (n==0)
-		{
-			mvprintw(y-1,3,"Không còn lớp nào liên quan tới %s !!!",name_find);
-			refresh();
-			getch();
-			free(list_find);
-			return;
 		}
 		
 		mvprintw(y,6,"Lớp thứ %d",i+1);
@@ -1198,7 +1191,7 @@ void delete_class()
 				}
 
 				getch();
-				break;
+				return;
 			}
 			case 27: // Nút Esc
 			{
@@ -1218,10 +1211,10 @@ void select_create_class()
 
 	if (has_colors()) {        // Nếu Terminal có hỗ trợ màu không
 		start_color();
-	
-		init_pair(1, COLOR_YELLOW, COLOR_BLACK); // Chữ Vàng, nền Đen
-		init_pair(2, COLOR_GREEN,  COLOR_BLACK); // Chữ Xanh lá, nền Đen
-		init_pair(3, COLOR_RED,    COLOR_BLUE);  // Chữ Đỏ, nền Xanh dương
+
+		init_pair(1, COLOR_YELLOW, COLOR_BLACK); // Chữ cam, nền Đen
+
+		init_pair(2, COLOR_BLACK, COLOR_WHITE);
 	}
     noecho();             // Tắt giao diện nhập
     curs_set(0);          // Ẩn con trỏ chuột
