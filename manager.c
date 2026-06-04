@@ -1211,10 +1211,7 @@ void select_create_class()
 
 	if (has_colors()) {        // Nếu Terminal có hỗ trợ màu không
 		start_color();
-
-		init_pair(1, COLOR_YELLOW, COLOR_BLACK); // Chữ cam, nền Đen
-
-		init_pair(2, COLOR_BLACK, COLOR_WHITE);
+		init_pair(1, COLOR_YELLOW, COLOR_BLACK); // Chữ , Nền
 	}
     noecho();             // Tắt giao diện nhập
     curs_set(0);          // Ẩn con trỏ chuột
